@@ -21,10 +21,13 @@ const { Article } = require("../models");
 module.exports = async () => {
   const articles = [];
 
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 30; i++) {
     articles.push({
       title: faker.lorem.sentence(5),
-      content: faker.lorem.paragraphs(),
+      summary: faker.lorem.sentence(10),
+      content: faker.lorem.paragraphs(3),
+      tags: ["blog", "sex", "lifestyle"],
+      creatorId: faker.number.int({ min: 1, max: 10 }),
     });
   }
 

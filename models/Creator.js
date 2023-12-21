@@ -22,10 +22,10 @@ class Creator extends Model {
           type: DataTypes.STRING,
         },
         email: {
-          type: DataTypes.VARCHAR,
+          type: DataTypes.STRING,
         },
         location: {
-          type: DataTypes.VARCHAR,
+          type: DataTypes.STRING,
         },
         password: {
           type: DataTypes.STRING,
