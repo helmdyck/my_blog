@@ -23,8 +23,9 @@ async function showHome(req, res) {
   res.json({ articles });
 }
 
-async function showContact(req, res) {
-  res.render("contact");
+async function showCategory(req, res) {
+  const articles = await Article.findAll({ where: { categoryId: req.params.id } })
+  res.json({ articles });
 }
 
 async function showAboutUs(req, res) {
@@ -36,6 +37,6 @@ async function showAboutUs(req, res) {
 
 module.exports = {
   showHome,
-  showContact,
+  showCategory,
   showAboutUs,
 };
