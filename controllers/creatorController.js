@@ -1,10 +1,14 @@
+const { where } = require("sequelize");
 const { Creator } = require("../models");
 
 // Display a listing of the resource.
 async function index(req, res) {}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const creator = await Creator.findByPk(req.params.id, {attributes: { exclude: ["password"] }})
+  res.json({creator})
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
