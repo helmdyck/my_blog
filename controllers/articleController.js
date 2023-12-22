@@ -1,13 +1,16 @@
-const { Article } = require("../models");
+const { Article, Creator } = require("../models");
+const { format } = require("date-fns");
+const { es } = require("date-fns/locale");
 
 // Display a listing of the resource.
-async function index(req, res) {
-  const articles = await Article.findAll();
-  res.render("home", { articles });
+async function show(req, res) {
+  const article = await Article.findByPk(req.params.id, { include: Creator });
+  const date = format(article.createdAt, "dd 'de' MMMM, yyyy.");
+
+  res.json({ article, date });
 }
 
-// Display the specified resource.
-async function show(req, res) {}
+async function index(req, res) {}
 
 // Show the form for creating a new resource
 async function create(req, res) {}
@@ -28,7 +31,6 @@ async function destroy(req, res) {}
 // ...
 
 module.exports = {
-  index,
   show,
   create,
   store,

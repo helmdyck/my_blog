@@ -28,6 +28,7 @@ module.exports = async () => {
       content: faker.lorem.paragraphs(3),
       tags: ["blog", "sex", "lifestyle"],
       creatorId: faker.number.int({ min: 1, max: 10 }),
+      categoryId: faker.number.int({ min: 1, max: 3 }),
     });
   }
 
