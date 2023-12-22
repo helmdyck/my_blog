@@ -4,7 +4,9 @@ const { es } = require("date-fns/locale");
 
 // Display a listing of the resource.
 async function show(req, res) {
-  const article = await Article.findByPk(req.params.id, { include: Creator });
+  const article = await Article.findByPk(req.params.id, {
+    include: [{ model: Creator, attributes: { exclude: ["password"] } }],
+  });
   const date = format(article.createdAt, "dd 'de' MMMM, yyyy.");
 
   res.json({ article, date });
