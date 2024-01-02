@@ -18,6 +18,9 @@ class Article extends Model {
         content: {
           type: DataTypes.TEXT,
         },
+        image: {
+          type: DataTypes.STRING,
+        },
         tags: {
           type: DataTypes.JSON,
         },

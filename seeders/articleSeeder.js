@@ -26,6 +26,7 @@ module.exports = async () => {
       title: faker.lorem.sentence(5),
       summary: faker.lorem.sentence(10),
       content: faker.lorem.paragraphs(3),
+      image: faker.image.urlLoremFlickr({ category: 'nature' }),
       tags: ["blog", "sex", "lifestyle"],
       creatorId: faker.number.int({ min: 1, max: 10 }),
       categoryId: faker.number.int({ min: 1, max: 3 }),
